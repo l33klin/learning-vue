@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "dev:cjs": "node src/cjs/index.cjs"
+    "dev:cjs": "node src/cjs/index.cjs",
+    "dev:esm": "node src/esm/index.mjs"
   },
   "keywords": [
     "demo"
   ],
   "author": "l33klin",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
