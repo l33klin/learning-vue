@@ -1,2 +1,4 @@
-import m from './module.mjs'
-console.log(m)
+import { foo, bar } from './module.mjs'
+
+foo()
+console.log(bar)
