@@ -1,4 +1,7 @@
-import { foo, bar } from './module.mjs'
+import * as m from './module.mjs'
 
-foo()
-console.log(bar)
+console.log(typeof m)
+console.log(Object.keys(m))
+
+m.foo()
+console.log(m.bar)
