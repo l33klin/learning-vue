@@ -1,3 +1,3 @@
-const m = require('./module.cjs')
-m.foo()
-console.log(m.bar)
+const { foo, bar } = require('./module.cjs')
+foo()
+console.log(bar)
