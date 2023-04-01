@@ -6,12 +6,12 @@
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "dev:cjs": "node src/cjs/index.cjs",
-    "dev:esm": "node src/esm/index.mjs"
+    "dev:esm": "node src/esm/index.mjs",
+    "serve": "node server/index.js"
   },
   "keywords": [
     "demo"
   ],
   "author": "l33klin",
-  "license": "MIT",
-  "type": "module"
+  "license": "MIT"
 }
