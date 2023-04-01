@@ -12,3 +12,6 @@ import {
   
   // 这个不冲突就可以不必处理
   console.log(bar)
+
+import md5 from 'md5'
+console.log(md5('Hello World'))
