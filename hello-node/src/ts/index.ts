@@ -1,13 +1,29 @@
-// 定义用户对象的类型
 interface UserItem {
     name: string
-    age?: number
+    age: number
+    enjoyFoods: string[]
+    // 这个属性引用了本身的类型
+    friendList: UserItem[]
 }
 
-// 在声明变量的时候将其关联到类型上
 const petter: UserItem = {
     name: 'Petter',
-    // age: 20,
+    age: 18,
+    enjoyFoods: ['rice', 'noodle', 'pizza'],
+    friendList: [
+        {
+            name: 'Marry',
+            age: 16,
+            enjoyFoods: ['pizza', 'ice cream'],
+            friendList: [],
+        },
+        {
+            name: 'Tom',
+            age: 20,
+            enjoyFoods: ['chicken', 'cake'],
+            friendList: [],
+        }
+    ],
 }
 
 console.log(petter)
