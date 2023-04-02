@@ -5,29 +5,16 @@ interface UserItem {
     // 这个属性引用了本身的类型
     friendList: UserItem[]
 }
-// 这里继承了 UserItem 的所有属性类型，并追加了一个权限等级属性
-interface Admin extends UserItem {
+
+// 这里在继承 UserItem 类型的时候，删除了两个多余的属性
+interface Admin extends Omit<UserItem, 'enjoyFoods' | 'friendList'> {
     permissionLevel: number
 }
 
+// 现在的 admin 就非常精简了
 const admin: Admin = {
     name: 'Petter',
     age: 18,
-    enjoyFoods: ['rice', 'noodle', 'pizza'],
-    friendList: [
-        {
-            name: 'Marry',
-            age: 16,
-            enjoyFoods: ['pizza', 'ice cream'],
-            friendList: [],
-        },
-        {
-            name: 'Tom',
-            age: 20,
-            enjoyFoods: ['chicken', 'cake'],
-            friendList: [],
-        }
-    ],
     permissionLevel: 1,
 }
 
