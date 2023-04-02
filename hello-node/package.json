@@ -7,6 +7,7 @@
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "dev:cjs": "node src/cjs/index.cjs",
     "dev:esm": "node src/esm/index.mjs",
+    "compile": "babel src/babel --out-dir compiled",
     "serve": "node server/index.js"
   },
   "keywords": [
@@ -16,5 +17,10 @@
   "license": "MIT",
   "dependencies": {
     "md5": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4"
   }
 }
