@@ -20,9 +20,6 @@ const admin: Admin = {
 
 console.log(admin)
 
-import md5 from 'md5'
-console.log(md5('Hello World'))
-
 // 对单人或者多人打招呼
 function greet(name: string | string[]): string | string[] {
     if (Array.isArray(name)) {
