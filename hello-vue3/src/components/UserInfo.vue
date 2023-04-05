@@ -48,10 +48,13 @@ export default defineComponent({
 
     const msg = ref<string>('Hello World!')
 
+    const curIndex = ref<number>(0)
+
     // 在这里解构 `toRefs` 对象才能继续保持响应性
     return {
       ...userInfoRefs,
       msg,
+      curIndex,
     }
   },
   directives: {
@@ -97,5 +100,24 @@ export default defineComponent({
 
     <!-- 这个使用传进去的黄色 -->
     <div v-highlight="`yellow`">{{ msg }}</div>
+
+    <!-- 动态CSS -->
+    <ul class="list">
+      <li
+        class="item"
+        :class="{ cur: index === curIndex }"
+        v-for="(item, index) in 5"
+        :key="index"
+        @click="curIndex = index"
+      >
+        {{ item }}
+      </li>
+    </ul>
   </ul>
 </template>
+
+<style scoped>
+.cur {
+  color: red;
+}
+</style>
