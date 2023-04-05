@@ -16,6 +16,14 @@ const routes: RouteRecordRaw[] = [
       title: 'Home',
     },
   },
+  {
+    path: '/userinfo',
+    name: 'userifo',
+    component: () => import('@/components/UserInfo.vue'),
+    meta: {
+      title: 'Userifo',
+    },
+  },
   /**
    * 子路由示例
    */
