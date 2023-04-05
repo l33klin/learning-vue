@@ -1,13 +1,5 @@
-<script>
-import {
-  defineComponent,
-  reactive,
-  ref,
-  toRef,
-  toRefs,
-  watch,
-  watchEffect,
-} from 'vue'
+<script lang="ts">
+import { defineComponent, reactive, ref, toRefs, watch, watchEffect } from 'vue'
 
 // interface Member {
 //   id: number
@@ -27,7 +19,7 @@ export default defineComponent({
     })
 
     const input_data = ref('hello')
-    const idRef = toRef(input_data)
+    // const idRef = toRef(input_data)
 
     // 定义一个新的对象，它本身不具备响应性，但是它的字段全部是 Ref 变量
     const userInfoRefs = toRefs(userInfo)
@@ -48,18 +40,29 @@ export default defineComponent({
     })
 
     const watchUser = () => {
-      console.log(userInfoRefs.id)
+      console.log(userInfoRefs.id) // 只有顶层数据发生变化会导致watchEffect被调用
       console.log(userInfoRefs.name)
       console.log(input_data.value)
     }
-
     watchEffect(watchUser)
+
+    const msg = ref<string>('Hello World!')
 
     // 在这里解构 `toRefs` 对象才能继续保持响应性
     return {
       ...userInfoRefs,
-      idRef,
+      msg,
     }
+  },
+  directives: {
+    // `directives` 下的每个字段名就是指令名称
+    highlight: {
+      // 钩子函数
+      mounted(el, binding) {
+        el.style.backgroundColor =
+          typeof binding.value === 'string' ? binding.value : 'unset'
+      },
+    },
   },
 })
 </script>
@@ -88,7 +91,11 @@ export default defineComponent({
 
     <li class="item">
       <span>input: </span>
-      <span>{{ idRef }}</span>
     </li>
+    <!-- 这个使用默认值 `unset` -->
+    <div v-highlight>{{ msg }}</div>
+
+    <!-- 这个使用传进去的黄色 -->
+    <div v-highlight="`yellow`">{{ msg }}</div>
   </ul>
 </template>
